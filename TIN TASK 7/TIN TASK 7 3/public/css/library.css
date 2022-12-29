@@ -1,0 +1,26 @@
+.bg-black{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.text-white{
+    color: white;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
+
+.text-black{
+    color: black;
+}
+
+
+.spacerXL{
+    height: 150px;
+    width: 100%;
+}

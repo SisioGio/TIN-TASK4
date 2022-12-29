@@ -1,0 +1,77 @@
+{
+    "users":{
+        
+        "firstname":{
+            "type":"text",
+            "name":"firstname",
+            "title":"First Name",
+            "required": true,
+            "PlaceHolder": "Enter your name"
+        },
+        "surname":{
+            "type":"text",
+            "name":"surname",
+            "title":"Last Name",
+            "required": true,
+            "PlaceHolder": "Enter your surname"
+        },
+        "birthDate":{
+            "type":"date",
+            "name":"birthdate",
+            "title":"Birthdate",
+            "required": true,
+            "PlaceHolder": "Enter your birthdate"
+        },
+        "email":{
+            "type":"text",
+            "name":"email",
+            "title":"E-mail",
+            "required": true,
+            "PlaceHolder": "Enter your e-mail address"
+        }
+        
+    },
+    "products":{
+        "name":{
+            "type":"text",
+            "name":"name",
+            "title":"Name",
+            "required": true,
+            "PlaceHolder": "Enter the product name"
+        },
+        "price":{
+            "type":"number",
+            "name":"price",
+            "title":"Price",
+            "required": true,
+            "PlaceHolder": "Enter the product price"
+        },
+        "description":{
+            "type":"textarea",
+            "name":"description",
+            "title":"Description",
+            "required": true,
+            "PlaceHolder": "Enter the product description"
+        }
+        
+    },
+    "orders":{
+       
+        "user_id":{
+            "type":"number",
+            "name":"user_id",
+            "title":"User ID",
+            "required": true,
+            "PlaceHolder": "Enter the user id"
+        },
+        "product_id":{
+            "type":"number",
+            "name":"product_id",
+            "title":"Product ID",
+            "required": true,
+            "PlaceHolder": "Enter the product ID"
+        }
+
+        
+    }
+}

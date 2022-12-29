@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<div class="spacerXL">
+   
+</div>
+<main>
+<div id="onlyForm">
+
+   <%= Added.tostring %>
+
+<h1>Add a new row into table   <%=table%></h1>
+<div class="spacerS"></div>
+<form action="create" method="POST" >
+
+    <%for(var field in schemaJson[table]){%>
+        <div class="form-input">
+            <label for="<%= schemaJson[table][field].name %>"> <%= schemaJson[table][field].title %></label>
+            <input type="<%= schemaJson[table][field].type %>"
+                    placeholder="<%= schemaJson[table][field].PlaceHolder %>"
+                    name="<%= schemaJson[table][field].name %>"
+                    required="<%= schemaJson[table][field].required %>"
+            >
+        </div>
+        
+        <%}%>
+
+        <button type="submit" name='table' value="<%= table %>">Submit</button>
+</form>
+    
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

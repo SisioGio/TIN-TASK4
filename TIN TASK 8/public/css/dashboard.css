@@ -1,0 +1,51 @@
+.table-shower{
+    padding: 5rem;;
+    display: grid;
+    align-items: center;
+  grid-template-columns: repeat(auto-fit, max(240px, 240px));
+    gap: 3rem;
+    justify-content: center;
+}
+  
+
+.table{
+    background-color: rgba(0, 0, 0, 0.8);
+    aspect-ratio: 1;
+    border-radius: 24px;
+    display: block;
+    line-height: 240px;
+    list-style: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+
+body {text-align: center;}
+form{
+
+  display:inline-block;
+  margin: auto;
+}
+
+
+select{
+  padding: 0.75rem;
+    margin: 0.5rem;
+    background-color: white;
+    font-size:1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button{
+  font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    background-color: white;
+    
+}

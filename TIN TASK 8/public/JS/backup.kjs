@@ -1,0 +1,306 @@
+
+class PuzzleItem{
+    constructor(index,position,w,h){
+        this.index=index;
+        this.position = position;
+        this.w =w;
+        this.h=h;
+        this.isEmpty = false;
+    }
+
+    findRow(size,p){
+        let output = Math.ceil(p/size)
+        
+        return output
+    }
+    findCol(size,p){
+        let output = p% size;
+      
+        if ( output===0){
+            output=size;
+        }
+        
+        return output
+    }
+}
+
+class Puzzle{
+    constructor(size,width){
+        this.size= size;
+        this.width=width;
+        this.items = []
+    }
+}
+let correct_index = []
+
+const rows = 2;
+
+const width = 745;
+const height = 745;
+
+const tile_heigth = height/rows;
+
+let puzzle = []
+
+
+const size = 2;
+
+createPuzzleItems();
+randomizePuzzle();
+renderPuzzle();
+function createPuzzleItems(){
+    
+    for(let i = 1;i<= size*size;i++){
+        // var row = Math.ceil(i/size);
+        // var col = size % i;
+        // if(col==0){
+        //     col = 1;
+        // }
+        let item = new PuzzleItem(i,i,width/size,height/size);
+        if(i===size){
+            item.isEmpty=true;
+        }
+        puzzle.push(item);
+
+    }
+    
+}
+
+function randomizePuzzle(){
+
+    for(let i =0;i<1;i++){
+        const a = Math.floor(Math.random()* puzzle.length)
+        const b = Math.floor(Math.random()* puzzle.length)
+        let temp = puzzle[a].position;
+        puzzle[a].position = puzzle[b].position;
+        puzzle[b].position = temp;
+        
+    }
+
+    
+}
+
+
+function renderPuzzle(){
+
+    let parent_container = createGridContainer();
+    
+    const img = new Image();
+    img.onload=()=>{
+    for( const item of puzzle){
+       
+        
+        let correct_row = item.findRow(size,item.index);
+        let correct_col = item.findCol(size,item.index);
+        let new_row = item.findRow(size,item.position);
+        let new_col = item.findCol(size,item.position);
+
+        let div = document.createElement("div");
+        div.style.setProperty("--col",new_col)
+        div.style.setProperty("--row",new_row)
+        div.style.setProperty("--index",item.index)
+        div.setAttribute("id","puzzleItem-"+item.index)
+
+        let canvas = document.createElement("canvas");
+        let ctx = canvas.getContext("2d");
+        canvas.setAttribute("width",item.w);
+        canvas.setAttribute("height",item.h);
+
+        if( item.isEmpty === false){
+            ctx.drawImage(img,(correct_col-1)* item.w,(correct_row-1)* item.h,item.w,item.h,0,0,item.w-2,item.h-2)
+        }
+
+        
+        div.append(canvas);
+      
+        parent_container.append(div);
+
+    }
+
+    
+}
+img.src = './images/prod1.jpg';
+
+parent_container.addEventListener("click", handleClick);
+}
+
+function handleClick(event){
+    
+
+    
+    const clickedRow = findClickedRow(event.clientY);
+    const clickedCol = findClickedColumn(event.clientX);
+
+    let clickedItem = findClickedItem(clickedRow,clickedCol);
+
+    let emptyItem = findEmptyItem();
+    let emptyRow = emptyItem.findRow(size,emptyItem.position);
+    let emptyCol  = emptyItem.findCol(size,emptyItem.position);
+
+    if((clickedRow === emptyRow && Math.abs(clickedCol-emptyCol) === 1) || (clickedCol === emptyCol && Math.abs(clickedRow-emptyRow)===1)){
+        console.log("Swith items!");
+        let clickedDiv = document.getElementById("puzzleItem-"+clickedItem.index);
+        let emptyDiv = document.getElementById("puzzleItem-"+emptyItem.index);
+        
+        SwapHtmlItems(clickedDiv,emptyDiv);
+
+        SwapPuzzleItems(clickedItem,emptyItem);
+        if(CheckIfCompleted()){
+            alert("Congrats!");
+        }
+
+    } else{
+        console.log("Clicked row:" +clickedRow + " - Clicked Col :" + clickedCol)
+        console.log("Empty row:" +emptyRow + " - Empty Col :" + emptyCol)
+    }
+   
+
+
+    
+}
+
+function SwapPuzzleItems(clickedItem,emptyItem){
+ 
+    var temp_position = clickedItem.position;
+    clickedItem.position=emptyItem.position;
+    emptyItem.position=temp_position;
+ 
+
+}
+
+function CheckIfCompleted(){
+    for(const item of puzzle){
+        if(item.index!=item.position){
+            return false;
+        }
+    }
+    return true;
+}
+function SwapHtmlItems(clickedDiv,emptyDiv){
+
+    const temp_index= emptyDiv.style.getPropertyValue("--index")
+    const temp_col= emptyDiv.style.getPropertyValue("--col")
+    const temp_row= emptyDiv.style.getPropertyValue("--row")
+    
+
+    emptyDiv.style.setProperty("--index",clickedDiv.style.getPropertyValue("--index"));
+    emptyDiv.style.setProperty("--col",clickedDiv.style.getPropertyValue("--col"));
+    emptyDiv.style.setProperty("--row",clickedDiv.style.getPropertyValue("--row"));
+    clickedDiv.style.setProperty("--index",temp_index);
+    clickedDiv.style.setProperty("--col",temp_col);
+    clickedDiv.style.setProperty("--row",temp_row);
+}
+
+function findEmptyItem(){
+    for(const item of puzzle){
+        if(item.isEmpty){
+            console.log("Empty element is:");
+            console.log(item)
+            return item;
+        }
+    }
+}
+function findClickedItem(row,col){
+    var position = (col) + (row-1)*size;
+
+
+    for(const item of puzzle){
+        if(item.position=== position){
+            return item;
+        }
+    }
+}
+
+function findClickedColumn(clickX){
+    let parent_container = document.getElementById("grid-container");
+    var containerX = parent_container.getBoundingClientRect().left;
+    let output = Math.ceil((clickX-containerX)/(width/size));
+    return output
+}
+
+
+function findClickedRow(clickY){
+    let parent_container = document.getElementById("grid-container");
+    var containerY = parent_container.getBoundingClientRect().top;
+    let output = Math.ceil((clickY-containerY)/(width/size));
+    return output
+}
+
+
+function createGridContainer(){
+    
+    let parent_div = document.createElement("div");
+    parent_div.setAttribute("id","grid-container");
+    document.body.append(parent_div);
+    return parent_div;
+}
+
+function draw(){
+    
+
+        
+
+        for(let i = 0;i<columns;i++){
+            for( let j = 0;j<rows;j++){
+
+                const x = i * tile_width;
+                const y = j * tile_heigth;
+                let index = i + j * columns;
+                var row_tile = j;
+                var col_tile = i;
+
+                ordered_tile = new Tile(index,row_tile,col_tile,x,y)
+                unordered_tile = new Tile(index,row_tile,col_tile,x,y)
+                tiles.push(ordered_tile);
+                unordered_tiles.push(unordered_tile);
+
+
+                
+
+            
+            
+            }
+        }
+        
+        drawTiles();
+
+        
+
+
+
+
+    
+
+    
+}
+
+
+function drawTiles() {
+    let parent_div = document.createElement("div");
+    parent_div.setAttribute("id","grid-container");
+    document.body.append(parent_div);
+    for( let i = 0;i<tiles.length;i++){
+        console.log(tiles[i])
+    }
+    for (let i =0; i<10;i++){
+        let a = Math.floor(Math.random() * (unordered_tiles.length))
+        let b = Math.floor(Math.random() * (unordered_tiles.length))
+        let temp_row = unordered_tiles[a].row
+        let temp_col = unordered_tiles[a].col
+       
+        unordered_tiles[a].row = unordered_tiles[b].row
+        unordered_tiles[a].col = unordered_tiles[b].col
+        unordered_tiles[b].row = temp_row
+        unordered_tiles[b].col = temp_col
+
+    }
+    unordered_tiles.pop();
+    tiles.pop();
+    
+    
+
+}
+
+function moveTile(){
+    alert("Hello")
+}

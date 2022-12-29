@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<div class="spacerXL">
+   
+</div>
+<main>
+
+<div class="spacerS"></div>
+<h2>Visit the <a href="/docs">documentation</a> in order to get some detail about the app functionalities <br><br></h2>
+    <div>
+      <h3>Select an item of the 'select' input field to open the corresponding form </h3>
+      <select name="table" id="table">
+        <% tables.forEach(function(table) { %>
+          <option value="<%= table.Tables_in_TIN %>"><%= table.Tables_in_TIN %></option>
+          <%});%>
+      </select>
+      <button  id="btnShowForm">Open new entry form</button>
+  
+    </div>
+   
+  <div class="spacerS"></div>
+
+    <h3>Or click one of the below button to open a table</h3>
+
+
+
+  <form class="table-shower" action="table" method="POST">
+    <% tables.forEach(function(table) { %>
+      <a href="/table?table=<%= table.Tables_in_TIN %>" class="table"><%= table.Tables_in_TIN %></a>
+      <!-- <button type="submit" class="table" name="table" value=<%= table.Tables_in_TIN %>>
+
+        <%= table.Tables_in_TIN %>
+      </button>
+     -->
+
+     
+      
+    <%});%>
+
+  </form>
+    
+    
+
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

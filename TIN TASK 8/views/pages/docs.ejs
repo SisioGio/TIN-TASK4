@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<div class="spacerXL">
+   
+</div>
+<main>
+
+    <div id="docs">
+        <h1>Database</h1>
+
+        <p><br><br>The database is installed and initialize locally. 
+            In order to use the application you need to install <b>MYSQL</b>, 
+            create a database and update the file dbConfig.js with your credentials.<br><br>
+            
+            The current database creation for testing can be created by running the script <b>DB_CREATION.sql</b> in the model folder.<br><br>
+
+            In case of database changes ( table creation or column modifications ) you must also update the file <b>schema.json</b> located in the model folder.<br><br>
+
+            This json file describes the tables from an HTML point of view, by using such configuration table I was able to create input forms dynamically under the same root.<br><br>
+
+            By using this approach I need only one ejs file for all possible input forms and I don't have to type the code for each single input field or label, which is fantastic!<br><br>
+
+        </p>
+
+        <h1><br><br>Tables</h1>
+
+        <p><br><br>Tables are also created dynamically based on the current table.<br><br>
+            I used only one ejs template to render all possible tables by simply proving as variables tables columns and data.<br><br>
+
+            In order to access a specific table you can visit the route <b>/table?table=[TABLE_NAME]</b>
+
+            In order to open a specific <b>item</b> you can just click on the corresponding row.
+        </p>
+
+        <h1><br><br>Forms</h1>
+
+        <p><br><br>Forms are also created dynamically based on the json schema retrieved from the file schema.json and filtered with the current table parameter.<br><br>
+
+                  All forms redirects to the same endpoint <b>/create</b> which handles create request for all tables.<br><br>
+
+                 How does the query creation work? Having form keys and values is enought to create a basic SQL query such as <b>INSERT INTO  products (name,price,description) VALUES ("PROD7","299","DFSFDFSA")</b>.<br><br>
+                 
+                 I totally agree that this step is not so functional and it can cause some issues but I'll try to work on a different solution but always trying to save as much code as possible. <b>Why do we need to write the same code many times?</b><br><br>
+
+        </p>
+
+      
+    </div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

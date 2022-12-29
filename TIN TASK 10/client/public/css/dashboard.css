@@ -1,0 +1,51 @@
+#tables{
+    padding: 2rem;;
+    display: grid;
+    align-items: center;
+  grid-template-columns: repeat(auto-fit, max(40px, 240px));
+    gap: 1rem;
+    justify-content: center;
+}
+  
+
+.tables-item{
+    background-color: rgba(0, 0, 0, 0.8);
+  
+    border-radius: 6px;
+    display: block;
+    line-height: 40px;
+    list-style: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+
+body {text-align: center;}
+form{
+
+  display:inline-block;
+  margin: auto;
+}
+
+
+select{
+  padding: 0.75rem;
+    margin: 0.5rem;
+    background-color: white;
+    font-size:1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button{
+  font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.75rem;
+    margin: 0.5rem;
+    background-color: white;
+    
+}

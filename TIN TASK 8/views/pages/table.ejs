@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<div class="spacerXL">
+   
+</div>
+<main>
+<div id="dimension-overview">
+
+   
+<h1 style="text-transform:uppercase" id="tableName"><%= table %></h1>
+<form action="create" method="POST">
+
+    <%for(var field in schemaJson[table]){%>
+        <label for="<%= schemaJson[table][field].name %>"> <%= schemaJson[table][field].title %></label>
+        <input type="<%= schemaJson[table][field].type %>"
+                placeholder="<%= schemaJson[table][field].PlaceHolder %>"
+                name="<%= schemaJson[table][field].name %>"
+                required="<%= schemaJson[table][field].required %>"
+        >
+        <%}%>
+
+        <button type="submit" name='table' value="<%= table %>">Submit</button>
+</form>
+    
+
+<% if(data.length === 0){%>
+
+        <h1>No data to dislay</h1>
+    <% } %>
+<table id="db_table">
+    <tr>
+        <%for(var i in columns){%>
+            <th>
+                <%= columns[i] %>
+            </th>
+            <%}%>
+      
+    </tr>
+    <%for(var i in data){%>
+        <tr id=<%=  data[i]['id'] %> class="table-row">
+            <%for(var j in columns){%>
+                <td>
+                    <% if(columns[j] ==="createdAt" || columns[j] ==="updatedAt" || columns[j] ==="birthdate"){%>
+
+                        <%= moment(data[i][columns[j]]).format('d/MM/YYYY hh:mm:ss') %>
+                        <%} else {%>
+
+                    <%= data[i][columns[j]] %>
+                    <%}%>
+                </td>
+                <%}%>
+
+          
+        </tr>
+    
+        <%}%>
+
+</table>
+</div>
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

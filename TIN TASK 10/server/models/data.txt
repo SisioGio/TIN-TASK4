@@ -1,0 +1,71 @@
+[
+    {
+        "id": 1,
+        "title": "PROD 3",
+        "description": "DESCRIPTION 3",
+        "price": "100.00",
+        "createdAt": "2022-12-05T21:28:32.000Z",
+        "updatedAt": "2022-12-05T21:28:32.000Z"
+    },
+    {
+        "id": 2,
+        "title": "PROD 2",
+        "description": "DESCRIPTION 2",
+        "price": "10.00",
+        "createdAt": "2022-12-05T21:28:40.000Z",
+        "updatedAt": "2022-12-05T21:28:40.000Z"
+    },
+    {
+        "id": 3,
+        "title": "PROD 1",
+        "description": "DESCRIPTION 1",
+        "price": "15.00",
+        "createdAt": "2022-12-05T21:28:46.000Z",
+        "updatedAt": "2022-12-05T21:28:46.000Z"
+    }
+]
+
+USER
+
+[
+    {
+        "id": 4,
+        "firstname": "NAME 1",
+        "surname": "SURNAME 1",
+        "email": "EMAIL@EMAIL.COM",
+        "birthDate": "1992-03-17T00:00:00.000Z",
+        "walletAddress": "AAASDASDASDASDASD",
+        "createdAt": "2022-12-05T21:24:18.000Z",
+        "updatedAt": "2022-12-05T21:24:18.000Z"
+    },
+    {
+        "id": 5,
+        "firstname": "NAME 2",
+        "surname": "SURNAME 2",
+        "email": "EMAIL@EMAIL.COM",
+        "birthDate": "1992-03-17T00:00:00.000Z",
+        "walletAddress": "AAASDASDASDASDASD",
+        "createdAt": "2022-12-05T21:24:22.000Z",
+        "updatedAt": "2022-12-05T21:24:22.000Z"
+    },
+    {
+        "id": 6,
+        "firstname": "NAME 3",
+        "surname": "SURNAME 3",
+        "email": "EMAIL@EMAIL.COM",
+        "birthDate": "1992-03-17T00:00:00.000Z",
+        "walletAddress": "AAASDASDASDASDASD",
+        "createdAt": "2022-12-05T21:24:26.000Z",
+        "updatedAt": "2022-12-05T21:24:26.000Z"
+    },
+    {
+        "id": 7,
+        "firstname": "NAME 3",
+        "surname": "SURNAME 3",
+        "email": "EMAIL@EMAIL.COM",
+        "birthDate": "1992-03-17T00:00:00.000Z",
+        "walletAddress": "AAASDASDASDASDASD",
+        "createdAt": "2022-12-05T21:25:43.000Z",
+        "updatedAt": "2022-12-05T21:25:43.000Z"
+    }
+]

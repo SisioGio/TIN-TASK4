@@ -1,0 +1,21 @@
+#social a{
+    color: white;
+    padding:0rem 2rem 1rem 2rem;
+    display: inline-block;
+}
+footer{
+   
+    background-color: black;
+    
+    text-align: center;
+    height: 100px;
+    margin-top: -100px;
+    
+}
+
+#social{
+    padding-top: 1rem;
+}
+footer h5{
+    color:white;
+}

@@ -1,0 +1,125 @@
+{
+    "tables":
+    { "user":
+        {
+            "columns":[
+                {
+                    "name":"id",
+                    "type":"number",
+                    "disabled": true,
+                    "placeholder":null
+                },
+                {
+                    "name":"firstname",
+                    "type":"text",
+                    "disabled": false,
+                    "placeholder":"Enter your firstname"
+                },
+                {
+                    "name":"surname",
+                    "type":"text",
+                    "disabled": false,
+                    "placeholder":"Enter your lastname"
+                    
+                },
+                {
+                    "name":"walletAddress",
+                    "type":"text",
+                    "disabled": false,
+                    "placeholder":"Enter your wallet address"
+                    
+                },
+                {
+                    "name":"email",
+                    "type":"email",
+                    "disabled": false,
+                    "placeholder":"Enter your email address"
+                   
+                },
+                {
+                    "name":"birthDate",
+                    "type":"date",
+                    "disabled": false,
+                    "placeholder":""
+
+                   
+                }
+                ,
+                {
+                    "name":"createdAt",
+                    "type":"datetime-local",
+                    "disabled": true,
+                    "placeholder":""
+                   
+                }
+                ,
+                {
+                    "name":"updatedAt",
+                    "type":"datetime-local",
+                    "disabled": true,
+                    "placeholder":""
+                   
+                }
+                
+            ]
+        },
+    "product":
+        {
+          
+            "columns":[
+                {
+                    "name":"id",
+                    "type":"number",
+                    "disabled": true,
+                    "placeholder":null
+                },
+                {
+                    "name":"title",
+                    "type":"text",
+                    "disabled": false,
+                    "placeholder":"Enter the title"
+                },
+                {
+                    "name":"description",
+                    "type":"text-area",
+                    "disabled": false,
+                    "placeholder":"Enter the description"
+                    
+                },
+                {
+                    "name":"price",
+                    "type":"number",
+                    "disabled": false,
+                    "placeholder":"Enter the price"
+                   
+                },
+                {
+                    "name":"cart_item",
+                    "type":"number",
+                    "disabled": true,
+                    "placeholder":"Enter the cart item id"
+                   
+                } ,
+                {
+                    "name":"createdAt",
+                    "type":"datetime-local",
+                    "disabled": true,
+                    "placeholder":""
+                   
+                }
+                ,
+                {
+                    "name":"updatedAt",
+                    "type":"datetime-local",
+                    "disabled": true,
+                    "placeholder":""
+                   
+                }
+    
+            ]
+        }
+    }
+ 
+
+    
+}

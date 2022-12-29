@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+<div class="spacerXL">
+   
+</div>
+<main>
+<div id="onlyForm">
+
+
+
+<div class="spacerS"></div>
+
+  <div  class="form-view">
+    <%for(var field in schemaJson[table]){%>
+      <div class="form-view-row">
+        <div class="form-view-header">
+          <h3> 
+            <%= schemaJson[table][field].name%>   
+          
+          </h3>
+        </div>
+        <div class="form-view-data">
+          <h5> 
+           <%= item[schemaJson[table][field].name] %>
+          
+          </h5>
+        </div>
+      
+      </div>
+      
+      <%}%>
+  </div>
+
+
+
+
+    
+</main>
+
+<footer>
+  <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
